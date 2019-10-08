@@ -1,0 +1,90 @@
+body{
+  background:
+  linear-gradient(
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2)
+  ),
+  url(IMG/chaussure1.jpg) no-repeat top fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.Button{
+  width:85px;
+	height:85px;
+	background:#222f3e;
+	border-radius:50%;
+	color:white;
+  margin: 0 auto;
+}
+h1{
+  text-align: center;
+  color: white;
+}
+h2{
+  text-align: center;
+  color: white;
+}
+a{
+  color: white;
+}
+.slt{
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  margin: 3% auto;
+}
+.slt a{
+  margin: 0 5%;
+}
+form{
+  margin: 0 auto;
+}
+#formadd{
+  display: none;
+}
+.style{
+    background-color: #ADD8E6;
+    color: black;
+    padding: 12px 20%;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    width: 100%;
+}
+.monTableau{
+  text-align: center;
+  margin: 0 auto;
+  width: 70%;
+}
+th{
+  background: white;
+  border: solid grey 2px;
+
+}
+td{
+  background: white;
+  border: solid grey 2px;
+}
+.addCa{
+  width: 100%;
+  margin: 1% auto;
+}
+#formadd{
+  width: 100%;
+}
+.poubelle{
+  width: 25px;
+}
+.constru{
+  margin: 0 auto;
+}
+label{
+  color: white;
+}
