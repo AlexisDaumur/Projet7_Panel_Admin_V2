@@ -66,11 +66,13 @@ form{
 th{
   background: white;
   border: solid grey 2px;
+  border-radius: 30px;
 
 }
 td{
   background: white;
   border: solid grey 2px;
+  border-radius: 30px;
 }
 .addCa{
   width: 100%;

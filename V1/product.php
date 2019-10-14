@@ -58,10 +58,15 @@ require_once 'connectDB.php';
 												?>
 										</select>
 
-										<!-- <input type="number" name="" value="">
-										<label for="">male</label>
-										<input type="radio" name="Male" value="Male"> -->
-				<!-- <input type="submit" name="" value="Envoyer"> -->
+										<input type="number" name="" placeholder="Prix (exemple 99.90)" value="<?php if (!empty($_POST['add'])) echo $_POST['add'];?>">
+
+
+										<select name="select_gender" form="add_product">
+											<option value="">H</option>
+											<option value="">F</option>
+										</select>
+
+				 					<input type="submit" name="" value="Envoyer">
 				</p>
 		</div>
 
