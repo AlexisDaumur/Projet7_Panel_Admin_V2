@@ -65,7 +65,7 @@ require_once 'connectDB.php';
 							<th>n°</th>
 							<th>Name</th>
 							<th>Modify</th>
-							<th>Delete</th>
+							<th>Delete.</th>
 						</tr>
 					</thead>
 					<tbody>
