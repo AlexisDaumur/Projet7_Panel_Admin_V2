@@ -20,55 +20,70 @@ require_once 'connectDB.php';
 			<input class="style" type="button" value="Ajouter un produit" onClick="AfficherMasquer()" />
 			<form class="add" action="product.php" action="" method="post">
 				<p id="formadd">
-				<input type="text" name="add" placeholder="Nom du produit" value="<?php if (!empty($_POST['add'])) echo $_POST['add'];?>">
+					<form method="post" action="add_product.php" id="add_product">
 
-				<!-- REQUETE POUR M'AFFICHER LE NOM DE MES CATÉGORIES -->
+							<input type="text" name="name" placeholder="Nom">
 
-				<select name="select_category" form="add_product">
+							<select name="category" form="add_product">
 								<?php
-								$sql2 = "SELECT name from category";
-								$req2 = mysqli_query($conn,$sql2);
-								while ($row2 = mysqli_fetch_row($req2)){
-										echo '<option value="'.$row2[0].'">'.$row2[0].'</option>';          // on affiche chaque champ
-								}
-								?>
-						</select>
+								$sql = "SELECT name from category ";
+					            $req = mysqli_query($conn,$sql);
+					            while($row = mysqli_fetch_array($req)){
+					        	   echo '<option value="'.$row[0].'">'.$row[0].'</option>';
+					            }
+					            mysqli_free_result ($req);
+					            ?>
+							</select>
 
-						<!-- REQUETE POUR M'AFFICHER LE NOM DE MES MARQUES -->
+							<select name="brand" form="add_product">
+								<?php
+								$sql = "SELECT name from brand ";
+					            $req = mysqli_query($conn,$sql);
+					            while($row = mysqli_fetch_array($req)){
+					        	   echo '<option value="'.$row[0].'">'.$row[0].'</option>';
+					            }
+					            mysqli_free_result ($req);
+					            ?>
+							</select>
 
-						<select name="select_brand" form="add_product">
-										<?php
-										$sql3 = "SELECT name from brand";
-										$req3 = mysqli_query($conn,$sql3);
-										while ($row3 = mysqli_fetch_row($req3)){
-												echo '<option value="'.$row3[0].'">'.$row3[0].'</option>';          // on affiche chaque champ
-										}
-										?>
-								</select>
+							<select name="color" form="add_product">
+								<?php
+								$sql = "SELECT name from color ";
+					            $req = mysqli_query($conn,$sql);
+					            while($row = mysqli_fetch_array($req)){
+					        	   echo '<option value="'.$row[0].'">'.$row[0].'</option>';
+					            }
+					            mysqli_free_result ($req);
+					            ?>
+							</select>
 
-								<!-- REQUETE POUR M'AFFICHER LE NOM DE MES COULEURS -->
-
-								<select name="select_color" form="add_product">
-												<?php
-												$sql4 = "SELECT name from color";
-												$req4 = mysqli_query($conn,$sql4);
-												while ($row4 = mysqli_fetch_row($req4)){
-														echo '<option value="'.$row4[0].'">'.$row4[0].'</option>';          // on affiche chaque champ
-												}
-												?>
-										</select>
-
-										<input type="number" name="" placeholder="Prix (exemple 99.90)" value="<?php if (!empty($_POST['add'])) echo $_POST['add'];?>">
+							<input type="number" name="price" placeholder="prix">
 
 
-										<select name="select_gender" form="add_product">
-											<option value="">H</option>
-											<option value="">F</option>
-										</select>
+								<input type="radio" name="gender" value="H"> Male </input>
+								<input type="radio" name="gender" value="F"> Female </input>
 
-				 					<input type="submit" name="" value="Envoyer">
+
+
+							<input type="submit" name="ok" value="Envoyer">
+
+					</form>
+
+					<?php
+					$name =
+
+					$req = "INSERT INTO product (name,) VALUES ('".$add."',)";
+
+					mysqli_query($conn, $req); ?>
+
+
+
 				</p>
-		</div>
+			</form>
+
+
+
+
 
 
 		<!-- TABLEAU POUR AFFICHER MES VALEURS -->
@@ -124,7 +139,7 @@ require_once 'connectDB.php';
 								<td><?php echo $row['brandname'] ?></td>
 								<td><?php echo $row['colorname'] ?></td>
 								<td><?php echo $row['productimage'] ?></td>
-								<td><?php echo $row['productprice'] ?> $</td>
+								<td><?php echo $row['productprice'] ?></td>
 								<td><?php echo $row['productgender'] ?></td>
 									<td><a href="mod_product.php?id=<?php echo $row['id'] ?>"><img class="poubelle" src="IMG/stylo.png" alt=""></a></td></td>
 								<td><a href="sup_product.php?id=<?php echo $row['id'] ?>"><img class="poubelle" src="IMG/poubelle.png" alt=""></a></td>

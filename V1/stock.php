@@ -35,9 +35,10 @@ require_once 'connectDB.php';
 						size.name as sizename,
 						color.name as colorname,
 						stock.stock
-						FROM product,size,stock,color
-						WHERE stock.product_id=product.id
-						AND stock.size_id=size.id';
+						FROM product
+						INNER JOIN stock ON stock.product_id=product.id
+						INNER JOIN size ON stock.size_id=size.id
+						INNER JOIN color ON product.color_id=color.id';
 
             $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
             // var_dump($row);
